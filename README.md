@@ -30,8 +30,7 @@ Built a minimal frontend that can:
 
 Added my own tests(I listed them in the PR's):
 
-- At least 2 unit tests
-- At least 1 integration test
+
 
 ## PR 2: Priority
 
