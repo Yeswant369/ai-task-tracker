@@ -23,7 +23,7 @@ unmerged. PR 2 contains everything (PR 1 plus priority):
 ```bash
 git clone https://github.com/Yeswant369/ai-task-tracker.git
 cd ai-task-tracker
-git checkout pr2-priority        # or: gh pr checkout 2
+git checkout pr2-priority        
 ```
 
 Run `pytest` on `main` and you get 1 test. On `pr2-priority` you get 44. For PR 1
