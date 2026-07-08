@@ -1,4 +1,4 @@
-# Agent Instructions
+# Instructions
 
 ## Setup
 
