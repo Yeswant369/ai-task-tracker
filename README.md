@@ -1,6 +1,6 @@
 # Application stats:
 
-Built a small task tracker in 60 minutes.
+Built a small task tracker as part of test
 
 
 
@@ -12,7 +12,7 @@ Built a small task tracker in 60 minutes.
 
 ## PR 1: Task CRUD
 
-Implement task CRUD endpoints:
+Implemented the task CRUD endpoints:
 
 - `POST /tasks` with body `{"title": "..."}` returns `201` and `{"id", "title", "completed": false}`.
 - Empty or missing `title` returns `422`.
