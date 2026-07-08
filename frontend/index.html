@@ -8,7 +8,12 @@
   </head>
   <body>
     <main class="app">
-      <h1>Task Tracker</h1>
+      <header class="app-header">
+        <h1>Task Tracker</h1>
+        <button id="theme-toggle" type="button" class="ghost" aria-pressed="false">
+          Dark mode
+        </button>
+      </header>
 
       <p id="error" class="error" role="alert" hidden></p>
 
@@ -21,12 +26,37 @@
           placeholder="What needs doing?"
           required
         />
+
+        <label class="sr-only" for="new-priority">Priority</label>
+        <select id="new-priority" name="priority">
+          <option value="high">High</option>
+          <option value="medium" selected>Medium</option>
+          <option value="low">Low</option>
+        </select>
+
         <button type="submit">Add</button>
       </form>
 
+      <div class="controls">
+        <label for="filter">Show</label>
+        <select id="filter">
+          <option value="all" selected>All priorities</option>
+          <option value="high">High</option>
+          <option value="medium">Medium</option>
+          <option value="low">Low</option>
+        </select>
+
+        <label class="checkbox">
+          <input id="sort" type="checkbox" />
+          Sort by priority
+        </label>
+      </div>
+
       <ul id="task-list" class="task-list"></ul>
 
-      <p id="empty" class="empty" hidden>No tasks yet. Add one above.</p>
+      <p id="empty" class="empty" hidden></p>
+
+      <p id="status-bar" class="status-bar" aria-live="polite"></p>
     </main>
 
     <script src="app.js"></script>

@@ -1,4 +1,23 @@
+from enum import Enum
+
 from pydantic import BaseModel, field_validator
+
+
+class Priority(str, Enum):
+    LOW = "low"
+    MEDIUM = "medium"
+    HIGH = "high"
+
+
+DEFAULT_PRIORITY = Priority.MEDIUM
+
+# Sort weight for `GET /tasks?sort=priority`: high first, low last.
+# Keyed by the plain string values held in TaskStorage.
+PRIORITY_ORDER: dict[str, int] = {
+    Priority.HIGH.value: 0,
+    Priority.MEDIUM.value: 1,
+    Priority.LOW.value: 2,
+}
 
 
 def clean_title(value: str) -> str:
@@ -11,6 +30,7 @@ def clean_title(value: str) -> str:
 
 class TaskCreate(BaseModel):
     title: str
+    priority: Priority = DEFAULT_PRIORITY
 
     @field_validator("title")
     @classmethod
@@ -21,6 +41,7 @@ class TaskCreate(BaseModel):
 class TaskUpdate(BaseModel):
     title: str | None = None
     completed: bool | None = None
+    priority: Priority | None = None
 
     @field_validator("title")
     @classmethod
@@ -35,3 +56,4 @@ class Task(BaseModel):
     id: int
     title: str
     completed: bool
+    priority: Priority

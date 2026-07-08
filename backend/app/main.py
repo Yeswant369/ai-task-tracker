@@ -1,7 +1,9 @@
-from fastapi import FastAPI, HTTPException, Response, status
+from typing import Literal
+
+from fastapi import FastAPI, HTTPException, Query, Response, status
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.models import Task, TaskCreate, TaskUpdate
+from app.models import Priority, Task, TaskCreate, TaskUpdate
 from app.storage import storage
 
 app = FastAPI(title="Task Tracker")
@@ -23,12 +25,19 @@ def health() -> dict[str, str]:
 
 @app.post("/tasks", response_model=Task, status_code=status.HTTP_201_CREATED)
 def create_task(payload: TaskCreate) -> dict:
-    return storage.create_task(payload.title)
+    return storage.create_task(payload.title, payload.priority.value)
 
 
 @app.get("/tasks", response_model=list[Task])
-def list_tasks() -> list[dict]:
-    return storage.list_tasks()
+def list_tasks(
+    # Typing these rejects unknown values with a 422 before the handler runs.
+    priority: Priority | None = Query(default=None),
+    sort: Literal["priority"] | None = Query(default=None),
+) -> list[dict]:
+    return storage.list_tasks(
+        priority=priority.value if priority is not None else None,
+        sort=sort,
+    )
 
 
 @app.patch("/tasks/{task_id}", response_model=Task)
@@ -37,6 +46,7 @@ def update_task(task_id: int, payload: TaskUpdate) -> dict:
         task_id,
         title=payload.title,
         completed=payload.completed,
+        priority=payload.priority.value if payload.priority is not None else None,
     )
     if task is None:
         raise HTTPException(status_code=404, detail="Task not found")

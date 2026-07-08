@@ -32,7 +32,23 @@ origin is allowed by that same CORS policy.
 ## What it does
 
 - Lists tasks, adds a task, toggles completion, and deletes a task.
+- Sets a priority when creating a task, and edits it per task afterwards.
+- Filters by priority and sorts high to low. Both are handled by the API via
+  `?priority=` and `?sort=priority`, not client-side.
 - Shows an error banner if the API is unreachable.
+
+Bonus features:
+
+- A status bar with total, completed, and remaining counts.
+- A dark mode toggle that persists to `localStorage` and otherwise follows the
+  system `prefers-color-scheme`.
+
+## Notes
 
 Task titles are rendered with `textContent`, never `innerHTML`, so a title like
 `<img onerror=...>` is displayed as text rather than executed.
+
+Every mutation re-reads the list from the server rather than patching local
+state. With a filter active, a local-only update would leave a task on screen
+after it stopped matching the filter, for example demoting a task from `high`
+to `low` while filtering by `high`.

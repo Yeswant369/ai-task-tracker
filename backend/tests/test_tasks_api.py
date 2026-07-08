@@ -6,15 +6,27 @@ import pytest
 def test_task_lifecycle_create_list_update_delete(client):
     created = client.post("/tasks", json={"title": "buy milk"})
     assert created.status_code == 201
-    assert created.json() == {"id": 1, "title": "buy milk", "completed": False}
+    assert created.json() == {
+        "id": 1,
+        "title": "buy milk",
+        "completed": False,
+        "priority": "medium",
+    }
 
     listed = client.get("/tasks")
     assert listed.status_code == 200
-    assert listed.json() == [{"id": 1, "title": "buy milk", "completed": False}]
+    assert listed.json() == [
+        {"id": 1, "title": "buy milk", "completed": False, "priority": "medium"}
+    ]
 
     toggled = client.patch("/tasks/1", json={"completed": True})
     assert toggled.status_code == 200
-    assert toggled.json() == {"id": 1, "title": "buy milk", "completed": True}
+    assert toggled.json() == {
+        "id": 1,
+        "title": "buy milk",
+        "completed": True,
+        "priority": "medium",
+    }
 
     deleted = client.delete("/tasks/1")
     assert deleted.status_code == 204
@@ -54,7 +66,12 @@ def test_patch_updates_title_and_completed_together(client):
     response = client.patch("/tasks/1", json={"title": "final", "completed": True})
 
     assert response.status_code == 200
-    assert response.json() == {"id": 1, "title": "final", "completed": True}
+    assert response.json() == {
+        "id": 1,
+        "title": "final",
+        "completed": True,
+        "priority": "medium",
+    }
 
 
 def test_patch_with_empty_body_leaves_task_untouched(client):
@@ -63,7 +80,12 @@ def test_patch_with_empty_body_leaves_task_untouched(client):
     response = client.patch("/tasks/1", json={})
 
     assert response.status_code == 200
-    assert response.json() == {"id": 1, "title": "unchanged", "completed": False}
+    assert response.json() == {
+        "id": 1,
+        "title": "unchanged",
+        "completed": False,
+        "priority": "medium",
+    }
 
 
 def test_patch_rejects_blank_title(client):
