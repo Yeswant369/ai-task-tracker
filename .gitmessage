@@ -1,0 +1,19 @@
+Implement task tracker changes with AI assistance
+
+What changed:
+- Added or updated [backend endpoint/storage/frontend behavior].
+- Added or updated [unit/integration/regression tests].
+- Kept the implementation scoped to the interview requirements.
+
+How I used AI:
+- Prompts/tools used: I used [AI tool/model] to help plan the implementation, draft code, and identify test cases for [specific feature].
+- AI output I accepted: I accepted [specific generated code/test/approach] after reviewing it against the README requirements.
+- AI output I rejected or changed: I rejected or changed [specific suggestion] because [reason].
+- One AI mistake I caught: The AI initially [specific mistake], and I corrected it by [specific correction].
+
+Verification:
+- Ran `pytest`
+- Ran `pytest -m pr1`
+- Ran `pytest -m pr2`
+- Manually checked [frontend behavior or API behavior]
+

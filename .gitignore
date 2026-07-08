@@ -1,0 +1,33 @@
+# Local Conductor workspace notes
+.context/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Frontend dependencies and build output
+node_modules/
+dist/
+build/
+.vite/
+.next/
+coverage/
+
+# Logs and local environment files
+*.log
+.env
+.env.*
+
+# OS and editor noise
+.DS_Store
+.idea/
+.vscode/
+
