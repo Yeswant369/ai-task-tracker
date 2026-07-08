@@ -32,7 +32,7 @@ in isolation, `git checkout pr1-task-crud` (22 tests).
 Then: needs **Python 3.10+**, and two terminals — the backend must be running
 before the frontend is any use.
 
-**Terminal 1 — backend (port 8000)**
+**Terminal 1 — backend (port 8000)** (python versions vary and update regularly, check with the installed version)
 
 ```bash
 # macOS / Linux
