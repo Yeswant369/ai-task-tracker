@@ -7,7 +7,7 @@ Built a small task tracker as part of test
 ## Stack
 
 - Backend: Python with FastAPI
-- Frontend: your choice, inside `frontend/`
+- Frontend: HTML,CSS and Vanilla js
 - Storage: in-memory only
 
 ## PR 1: Task CRUD
