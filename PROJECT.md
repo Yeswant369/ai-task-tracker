@@ -37,7 +37,7 @@ before the frontend is any use.
 ```bash
 # macOS / Linux
 cd backend
-python3 -m venv .venv && source .venv/bin/activate
+python3.11 -m venv .venv && source .venv/bin/activate
 python -m pip install -r requirements.txt
 uvicorn app.main:app --reload
 ```
