@@ -15,8 +15,18 @@ def test_create_task_assigns_incrementing_ids_and_defaults_to_incomplete(store):
     first = store.create_task("write tests")
     second = store.create_task("read code")
 
-    assert first == {"id": 1, "title": "write tests", "completed": False}
-    assert second == {"id": 2, "title": "read code", "completed": False}
+    assert first == {
+        "id": 1,
+        "title": "write tests",
+        "completed": False,
+        "priority": "medium",
+    }
+    assert second == {
+        "id": 2,
+        "title": "read code",
+        "completed": False,
+        "priority": "medium",
+    }
 
 
 def test_ids_are_not_reused_after_delete(store):
@@ -35,6 +45,7 @@ def test_update_task_applies_only_provided_fields(store):
         "id": 1,
         "title": "original",
         "completed": True,
+        "priority": "medium",
     }
     # title=None means "not provided", so the title survives.
     assert store.get_task(1)["title"] == "original"
