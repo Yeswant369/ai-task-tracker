@@ -1,4 +1,4 @@
-# Instructions
+# Agent Instructions
 
 ## Setup
 
@@ -31,12 +31,13 @@ pytest -m pr2
 git config commit.template .gitmessage
 ```
 
-Used the prefilled `.gitmessage` when committing assessment work. Kept the AI usage section specific and meaningful.
+Use the prefilled `.gitmessage` when committing assessment work. Keep the AI usage section specific and meaningful.
 
 ## Rules
 
 - Never modify files under `backend/tests/acceptance/`.
 - Never modify `backend/pytest.ini`.
 - Never modify `.github/workflows/ci.yml`.
-- Implemented the backend work in `backend/app/` and frontend work in `frontend/`.
-
+- Implement backend work in `backend/app/` and frontend work in `frontend/`.
+- Bonus features are optional and should stay under 10% of the effort.
+- Keep it simple: no auth, no payments, no external database, no unnecessary frameworks.
