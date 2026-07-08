@@ -16,8 +16,21 @@ nothing to `npm install`.
 
 ## Quick start
 
-Needs **Python 3.10+**. Two terminals — the backend must be running before the
-frontend is any use.
+**First, get on the right branch.** `main` holds only the template and this
+write-up; the implementation lives on the two PR branches, which are open and
+unmerged. PR 2 contains everything (PR 1 plus priority):
+
+```bash
+git clone https://github.com/Yeswant369/ai-task-tracker.git
+cd ai-task-tracker
+git checkout pr2-priority        # or: gh pr checkout 2
+```
+
+Run `pytest` on `main` and you get 1 test. On `pr2-priority` you get 44. For PR 1
+in isolation, `git checkout pr1-task-crud` (22 tests).
+
+Then: needs **Python 3.10+**, and two terminals — the backend must be running
+before the frontend is any use.
 
 **Terminal 1 — backend (port 8000)**
 

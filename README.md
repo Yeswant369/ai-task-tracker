@@ -9,6 +9,22 @@ and a frontend in plain HTML, CSS, and JavaScript (no framework, no build step).
 | **PR 2 — Priority** | https://github.com/Yeswant369/ai-task-tracker/pull/2 (stacked on PR 1) |
 | **Write-up** | **[PROJECT.md](PROJECT.md)** — setup for macOS and Windows, how to run it, the design decisions I made, and how I used AI |
 
+> ### ⚠️ The code is on the PR branches, not on `main`
+>
+> `main` is the untouched template plus this write-up. Both PRs are open and
+> unmerged, as the brief asks. To run the finished app, check out PR 2 — it
+> contains PR 1 plus priority:
+>
+> ```bash
+> git clone https://github.com/Yeswant369/ai-task-tracker.git
+> cd ai-task-tracker
+> git checkout pr2-priority      # or: gh pr checkout 2
+> ```
+>
+> `pytest` gives **44 passed** there, versus 1 on `main`. Then follow
+> [PROJECT.md → Quick start](PROJECT.md#quick-start).
+> For PR 1 alone, use `git checkout pr1-task-crud` (22 passed).
+
 **44 tests pass** via `pytest` from `backend/`. Each PR description covers what I
 asked the AI for, what I rejected, and the mistakes I caught — including a state-leak
 bug in the provided `conftest.py`.
