@@ -20,9 +20,8 @@ bug in the provided `conftest.py`.
 
 ---
 
-*The original exercise brief follows, unmodified.*
-
----
+<details>
+<summary><b>Original exercise brief</b> (unmodified — click to expand)</summary>
 
 # AI-Assisted Full-Stack Interview Exercise
 
@@ -132,3 +131,5 @@ pytest
 pytest -m pr1
 pytest -m pr2
 ```
+
+</details>

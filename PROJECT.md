@@ -2,7 +2,7 @@
 
 I built this as a FastAPI backend with a vanilla-JS frontend, delivered as two
 stacked pull requests. The original assignment brief is preserved verbatim in
-[`README.md`](README.md), below a short intro linking here.
+[`README.md`](README.md), in a collapsible section below the intro.
 
 - **Backend:** Python 3.10+, FastAPI, Pydantic v2
 - **Frontend:** HTML, CSS, plain JavaScript. No framework, no build step, no dependencies
