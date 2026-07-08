@@ -1,4 +1,4 @@
-# Task Tracker — my submission
+# Task Tracker — my submission.
 
 A small task tracker built for this exercise: FastAPI backend, in-memory storage,
 and a frontend in plain HTML, CSS, and JavaScript (no framework, no build step).
