@@ -7,6 +7,13 @@ from fastapi.testclient import TestClient
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from app.main import app
+from app.storage import storage
+
+
+@pytest.fixture(autouse=True)
+def reset_storage() -> None:
+    """Storage is a module-level singleton, so isolate every test from the last."""
+    storage.reset()
 
 
 @pytest.fixture
